@@ -35,6 +35,13 @@ exports.usersCreateGet = (req, res) => {
   });
 };
 
+exports.usersSearchGet = (req, res) => {
+  res.render('search', {
+    title: 'Search results',
+    users: usersStorage.searchUsersByName(req.query.name),
+  });
+}
+
 exports.usersUpdateGet = (req, res) => {
   const user = usersStorage.getUser(req.params.id);
   res.render('updateUser', {
